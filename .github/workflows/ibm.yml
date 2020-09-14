@@ -17,10 +17,8 @@ jobs:
 
     - name: Init
       run: |
-        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-        sudo apt-get update
-        sudo apt-get install cf-cli
+        wget -O cf.deb https://s3-us-west-1.amazonaws.com/cf-cli-releases/releases/v6.52.0/cf-cli-installer_6.52.0_x86-64.deb
+        dpkg -i cf.deb
     - name: Login IBM Cloud
       env:
         IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
