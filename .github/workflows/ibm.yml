@@ -17,8 +17,8 @@ jobs:
 
     - name: Init
       run: |
-        wget -O cf.deb https://s3-us-west-1.amazonaws.com/cf-cli-releases/releases/v6.52.0/cf-cli-installer_6.52.0_x86-64.deb
-        dpkg -i cf.deb
+        wget -qO cf.deb https://s3-us-west-1.amazonaws.com/cf-cli-releases/releases/v6.52.0/cf-cli-installer_6.52.0_x86-64.deb
+        sudo dpkg -i cf.deb
     - name: Login IBM Cloud
       env:
         IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
